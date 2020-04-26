@@ -8,13 +8,20 @@ module.exports = {
   projectName: 'namefully', // Usually your repo name.
   themeConfig: {
     navbar: {
+      hideOnScroll: true,
       title: 'namefully',
       links: [
         {
-          to: 'docs/installation',
+          to: 'docs/overview',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
+        },
+        { to: 'docs/help', label: 'Help', position: 'left' },
+        {
+          href: 'https://github.com/ralflorent/namefully',
+          label: 'v1.0.8',
+          position: 'right'
         },
         {
           href: 'https://github.com/ralflorent/namefully',
@@ -30,9 +37,9 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-                label: "Getting started",
-                to: "docs/installation",
-              },
+              label: "Getting Started",
+              to: "docs/overview",
+            },
           ],
         },
         {
@@ -69,6 +76,11 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/ralflorent/namefully-docs/edit/master/',
+        },
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl:
+              'https://github.com/ralflorent/namefully-docs/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
