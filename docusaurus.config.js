@@ -1,6 +1,6 @@
 module.exports = {
   title: 'namefully',
-  tagline: 'Person name handler in the Latin alphabet',
+  tagline: 'A JavaScript utility for handling person names',
   url: 'https://ralflorent.github.io/namefully',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
@@ -10,6 +10,10 @@ module.exports = {
     navbar: {
       hideOnScroll: true,
       title: 'namefully',
+      logo: {
+        alt: "logo",
+        src: "img/logo.svg",
+      },
       links: [
         {
           to: 'docs/overview',
