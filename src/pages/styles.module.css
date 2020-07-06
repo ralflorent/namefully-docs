@@ -4,57 +4,69 @@
  * and scoped locally.
  */
 
- .heroBanner {
-    padding: 4rem 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
+.heroBanner {
+  color: #fff !important;
+}
+
+@media screen and (max-width: 966px) {
   .heroBanner {
-    color: #fff !important;
-  }
-
-  @media screen and (max-width: 966px) {
-    .heroBanner {
-      padding: 2rem;
-    }
-  }
-
-  .buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .features {
-    display: flex;
-    align-items: center;
-    padding: 2rem 0;
-    width: 100%;
-  }
-
-  .feature {
-    text-align: center;
-  }
-
-  .featureImage {
-    height: 120px;
-    width: 120px;
-    padding: 10px;
-
-    fill: var(--ifm-color-primary);
-  }
-
-  .heroLink {
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    color: #fff;
-  }
-
-  .section {
     padding: 2rem;
   }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.feature {
+  text-align: center;
+}
+
+.featureImage {
+  height: 120px;
+  width: 120px;
+  padding: 10px;
+
+  fill: var(--ifm-color-primary);
+}
+
+.heroLink {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.section {
+  padding: 2rem;
+}
+
+.sectionHeader {
+  font-size: 28px;
+}
+
+.showcaseTitle {
+  font-size: 28px;
+}
+
+.showcaseText {
+  font-size: 16px;
+}

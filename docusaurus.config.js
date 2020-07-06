@@ -1,12 +1,27 @@
-module.exports = {
+const versions = require("./versions.json");
+
+const config = {
   title: 'namefully',
   tagline: 'A JavaScript utility for handling person names',
-  url: 'https://ralflorent.github.io/namefully',
+  url: 'https://namefully.netlify.app',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'ralflorent', // Usually your GitHub org/user name.
-  projectName: 'namefully', // Usually your repo name.
+  organizationName: 'ralflorent',
+  projectName: 'namefully',
   themeConfig: {
+    announcementBar: {
+      id: 'supportus',
+      content:
+        '⭐️ If you like namefully, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/ralflorent/namefully">GitHub</a>! ⭐️',
+      },
+    // prism: {
+    //   theme: require('prism-react-renderer/themes/github'),
+    //   darkTheme: require('prism-react-renderer/themes/dracula'),
+    // },
+    algolia: {
+      apiKey: "api-key",
+      indexName: "namefully",
+    },
     navbar: {
       hideOnScroll: true,
       title: 'namefully',
@@ -20,12 +35,16 @@ module.exports = {
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
-        },
-        { to: 'docs/help', label: 'Help', position: 'left' },
-        {
-          href: 'https://github.com/ralflorent/namefully',
-          label: 'v1.0.8',
-          position: 'right'
+          items: [
+            {
+              label: `${versions[0]} (latest)`,
+              to: 'docs/installation',
+            },
+            ...versions.slice(1).map((version) => ({
+                label: version,
+                to: `docs/${version}/installation`,
+            })),
+          ]
         },
         {
           href: 'https://github.com/ralflorent/namefully',
@@ -41,8 +60,20 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: "Getting Started",
+              label: "Get Started",
               to: "docs/overview",
+            },
+            {
+              label: "API Quick Reference",
+              to: "docs/api-quick-reference",
+            },
+            {
+              label: "Examples",
+              to: "docs/examples",
+            },
+            {
+              label: "Use Cases",
+              to: "docs/use-cases",
             },
           ],
         },
@@ -52,6 +83,10 @@ module.exports = {
             {
               label: 'Stack Overflow',
               href: 'https://stackoverflow.com/questions/tagged/namefully',
+            },
+            {
+              label: 'Feedback',
+              href: 'https://github.com/ralflorent/namefully/issues',
             }
           ],
         },
@@ -65,6 +100,10 @@ module.exports = {
             {
               label: 'Twitter',
               href: 'https://twitter.com/ralflorent',
+            },
+            {
+              label: 'Portfolio',
+              href: 'https://ralflorent.com',
             },
           ],
         },
@@ -93,3 +132,5 @@ module.exports = {
     ],
   ],
 };
+
+module.exports = config;
