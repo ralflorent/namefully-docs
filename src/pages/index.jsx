@@ -83,7 +83,7 @@ name.to('dot') // john.smith`}
 const features = [
   {
     title: <>Easy to Use</>,
-    icon: '/static/img/json.svg',
+    icon: '/img/json.svg',
     description: (
       <>
         Accept various name shapes and optional parameters in order
@@ -93,7 +93,7 @@ const features = [
   },
   {
     title: <>Shape it as Desired</>,
-    icon: '/static/img/code-school.svg',
+    icon: '/img/code-school.svg',
     description: (
       <>
         Provide an easy API for handling different name parts (surname,
@@ -103,7 +103,7 @@ const features = [
   },
   {
     title: <>Related Packages</>,
-    icon: '/static/img/react.svg',
+    icon: '/img/react.svg',
     description: (
       <>
         Available as a wrapper in both Angular and React, with its own
@@ -225,7 +225,7 @@ function Home() {
     >
       <header className={classnames("hero hero--primary", styles.heroBanner)}>
         <div className="container">
-          <img src="/static/img/logo.svg" />
+          <img src="/img/logo.svg" />
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
