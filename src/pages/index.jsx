@@ -2,10 +2,82 @@ import React from "react";
 import classnames from "classnames";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
+import CodeBlock from '@theme/CodeBlock';
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import { EasyInstantiation, FullControl, DoItYourself } from './codeblocks';
 import styles from "./styles.module.css";
+
+
+const EasyInstantiation = () =>
+<CodeBlock className="language-typescript">{
+`import {
+    Namefully,
+    Firstname, Lastname, FullnameBuilder
+} from 'namefully'
+
+const fromString = new Namefully('Jane Doe')
+const fromArray = new Namefully([ 'Jane', 'Doe' ])
+const fromJSON = new Namefully({
+    firstname: 'Jane',
+    lastname: 'Doe'
+})
+const fromName = new Namefully([
+    new Firstname('Jane'),
+    new Lastname('Doe')
+])
+const fromBuilder = new Namefully(
+    new FullnameBuilder()
+        .firstname('Jane')
+        .lastname('Doe')
+        .build()
+)`}
+</CodeBlock>
+
+
+const FullControl = () =>
+<CodeBlock className="language-typescript">{
+`import { Namefully, Separator } from 'namefully'
+
+const name = new Namefully(
+    'Lic, De La Cruz, Rosanna, María',
+    {
+        orderedBy: 'lastname',
+        separator: Separator.COMMA,
+        titling: 'us',
+        bypass: true
+    }
+)
+name.fn() // Rosanna
+name.mn() // María
+name.ln() // De La Cruz
+name.full() // Lic. De La Cruz Rosanna María
+name.format('f L') //Rosanna DE LA CRUZ
+name.zip('firstmid') // De La Cruz R. M.`}
+</CodeBlock>
+
+const DoItYourself = () =>
+<CodeBlock className="language-typescript">{
+`import {
+    Namefully, Firstname, Lastname,
+    Parser
+} from 'namefully'
+
+class MyParser implements Parser<string> {
+    constructor(public raw: string) {}
+    parse() {
+        const [fn, ln] = this.raw.split('#')
+        return {
+            firstname: new Firstname(fn.trim()),
+            lastname: new Lastname(ln.trim()),
+        }
+    }
+}
+const name = new Namefully(null, {
+    parser: new MyParser('John # Smith')
+})
+name.to('dot') // john.smith`}
+</CodeBlock>
+
 
 
 const features = [
