@@ -14,10 +14,10 @@ const config = {
       content:
         '⭐️ If you like namefully, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/ralflorent/namefully">GitHub</a>! ⭐️',
       },
-    // prism: {
-    //   theme: require('prism-react-renderer/themes/github'),
-    //   darkTheme: require('prism-react-renderer/themes/dracula'),
-    // },
+    prism: {
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
+    },
     algolia: {
       apiKey: "api-key",
       indexName: "namefully",
