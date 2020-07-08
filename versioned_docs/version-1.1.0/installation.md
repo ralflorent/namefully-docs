@@ -43,7 +43,7 @@ None
 ## Related Packages
 
 Are you developing your project or application using the [Angular](https://angular.io)
-framework or [React](https://reactjs.org) library? If yes, `namefully` got you
+framework or [React](https://reactjs.org) library? If yes, `namefully`'s got you
 covered.
 
 <Tabs

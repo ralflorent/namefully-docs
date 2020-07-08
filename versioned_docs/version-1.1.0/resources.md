@@ -1,7 +1,7 @@
 ---
-id: react
-sidebar_label: React
-title: React-based Package
+id: resources
+sidebar_label: Resources
+title: Resources
 ---
 
 :::note

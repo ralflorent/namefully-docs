@@ -92,7 +92,7 @@ const features = [
     ),
   },
   {
-    title: <>Shape it as Desired</>,
+    title: <>Shape a Name as Desired</>,
     icon: '/img/code-school.svg',
     description: (
       <>
@@ -247,12 +247,12 @@ function Home() {
           <p>
             It's a JavaScript library written in {' '}
             <a href="https://www.typescriptlang.org/">TypeScript</a> for handling
-            person names. It relies actually on how the developer indicates the
-            roles of the name parts so that it can internally perform certain
-            operations and saves the developer some hurdles. As a matter of fact,
-            <code>namefully</code> can be constructed using distinct raw data shapes.
-            That is intended to give some flexibility to the developer so that he or she
-            is not bound to a particular data format.
+            person names, including titles and initials.
+            It relies actually on how you indicate each name part's role
+            to internally perform certain operations and save you some hurdles.
+            As a matter of fact, <code>namefully</code> can be constructed using distinct
+            raw data shapes. That is intended to give you some flexibility so that you
+            are not bound to a particular data input.
           </p>
         </Section>
         {features && features.length && (

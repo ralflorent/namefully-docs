@@ -11,10 +11,6 @@
           {
             "type": "doc",
             "id": "version-1.1.0/installation"
-          },
-          {
-            "type": "doc",
-            "id": "version-1.1.0/api-quick-reference"
           }
         ]
       },
@@ -28,7 +24,7 @@
           },
           {
             "type": "doc",
-            "id": "version-1.1.0/configuration"
+            "id": "version-1.1.0/resources"
           },
           {
             "type": "doc",
@@ -47,6 +43,10 @@
           {
             "type": "doc",
             "id": "version-1.1.0/api"
+          },
+          {
+            "type": "doc",
+            "id": "version-1.1.0/api-quick-reference"
           }
         ]
       },

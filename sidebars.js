@@ -3,15 +3,17 @@ module.exports = {
     'Get Started': [
         'overview',
         'installation',
-        'api-quick-reference'
     ],
     'Usage': [
         'syntax',
-        'configuration',
+        'resources',
         'examples',
         'use-cases'
     ],
-    'API': ['api'],
+    'API': [
+        'api',
+        'api-quick-reference'
+    ],
     'Related Packages': [
         'angular',
         'react'
