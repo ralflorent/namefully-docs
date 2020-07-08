@@ -57,7 +57,7 @@ the name parts of a string content.
 
 The string content is assessed in that specific order (name standards), based on
 the count of available elements. It is expected that the raw string content will
-provide information between two and five name parts. Also, the order of appearance
+provide information between two to five name parts. Also, the order of appearance
 set in the configuration influences how the parsing is carried out.
 
 **If ordered by `firstname`, you should provide a string name such that:**
@@ -90,7 +90,7 @@ const name5 = new Namefully('Mr John Joe Smith PhD')
 
 This data format is very similar to the plain string content. As a matter of fact,
 it follows the same parsing principle to determine the name parts. Unlike the
-string content, the name parts in this case are already split (no need to be
+string content, the name parts in this case are already split up (no need to be
 concerned with a specified separator) for `Namefully`.
 
 **Example:**
@@ -133,7 +133,7 @@ First off, `Name` is a class provided by this utility that represents a namon wi
 some extra capabilities, compared to a simple string name. This class helps to
 define the role of a name part (e.g., `prefix`) beforehand, which, as a consequence, gives
 more flexibility at the time of creating an instance of `Namefully`. You can read
-about its full functionalities [here](configuration).
+about its full functionalities in [Resources](resources).
 
 This data format gets parsed as an array of objects representing the `Name` class.
 With this, every name part is already defined within the `namefully` domain as
@@ -156,7 +156,8 @@ const name = new Namefully ([
 
 :::tip
 There are two other ready-made classes that faciliate the use of this parsing mechanism:
-`Firstname`, `Lastname` with many more capabilities. Read more [here](configuration).
+`Firstname`, `Lastname` with many more capabilities. Read more about them in
+[Resources](resources).
 :::
 
 **Alternatively:**
@@ -172,7 +173,7 @@ const name = new Namefully ([
 
 ### `Nama`
 
-This data type is a single JSON object with the following signature:
+This data type is a simple JSON object with the following signature:
 
 ```ts
 interface Nama {
@@ -200,7 +201,8 @@ const name = new Namefully ({
 ### `Fullname`
 
 If you wonder what's really happening under the hood when using `namefully`, then
-this JSON signature is its true secret (its core).
+this JSON signature is its true secret (its core). If `namefully` was Google, then
+this JSON would've been the search engine. Weird analogy, hehe! But you get the point.
 
 ```ts
 import { Prefix, Firstname, Name, Lastname, Suffix } from 'namefully'
@@ -219,7 +221,7 @@ Yeah, that is just `namefully` in a nutshell. :smile:
 But you don't want to spend your time parsing, validating, and finally constructing
 this yourself. After all, why would you need to use this utility when you could do
 it yourself? For this reason, `namefully` provides a full name builder, `FullnameBuilder`,
-that uses a chaining method to build this core JSON signature.
+that uses a chaining method to build this core JSON object.
 
 **Example:**
 
@@ -243,9 +245,21 @@ Below are enlisted the options supported by `namefully`.
 
 `string: 'firstname' | 'lastname'`, default: `firstname`
 
-Indicate in what order the names appear when set as a raw string values or
+Indicate in what order the name parts appear when set as a raw string values or
 string array values. That is, the first element/piece of the name is either the
 given name (e.g., `Jon Snow`)  or the surname (e.g.,`Snow Jon`).
+
+So, based on the order of appearance, a full name looks like this:
+
+```text title="By firstname"
+`[Prefix] Firstname [Middlename] Lastname [Suffix]`
+```
+
+```text title="By lastname"
+`[Prefix] Lastname Firstname [Middlename] [Suffix]`
+```
+
+**Example:**
 
 ```ts
 import { Namefully } from 'namefully'
@@ -332,7 +346,7 @@ console.log(name.px()) // => Mr.
 
 `boolean`, default: `false`
 
-Set an ending character after the full name (a comma before the suffix actually).
+Set an ending character (i.e., a comma before the suffix) after the birth name.
 
 ```ts
 import { Namefully } from 'namefully'
@@ -445,14 +459,14 @@ is the fact that the names of the methods, parameters, etc. are somewhat long.
 Days after I wrote this utility, I was like, "No way, I'm gonna keep typing these
 long names." That's how I came up with the aliases. Use them to your convenience.
 
-Many of the things that you've read and seen so far can be rewritten in a shorter
-way. That is, every time you see `firstname`, think that there's a chance that
+Many of the code snippets that you've read and seen so far can be rewritten in a
+shorter way. That is, every time you see `firstname`, think that there's a chance
 you can short-cut it to `fn`, for example. The list of aliases can be found
-[here](api-quick-reference#aliases).
+that [here](api-quick-reference#aliases).
 
 Let me quickly show the beauty of the aliases for a minute. Take the name of this
-awesome Bachata singer *Juan Luis Guerra* as a sample of the data originatesd
-in a CSV (comma-separated values) format:
+awesome Bachata singer *Juan Luis Guerra* as a sample of the data originated in
+a CSV (comma-separated values) format:
 
 ```text title="dataset.csv"
 Title,Last Name,First Name, Middle Name
