@@ -48,7 +48,7 @@ yarn add @namefully/ng
 
 ## Usage
 
-When importing the `NamefullyModule`, you automatically have access to:
+When importing the `NamefullyModule` module, you automatically have access to:
 
 - **Component**: available via the `<ng-namefully/>` selector (HTML tag)
 - **Pipe**: `namefully`
