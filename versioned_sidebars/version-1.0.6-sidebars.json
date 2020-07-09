@@ -42,10 +42,6 @@
         "items": [
           {
             "type": "doc",
-            "id": "version-1.0.6/api"
-          },
-          {
-            "type": "doc",
             "id": "version-1.0.6/api-quick-reference"
           }
         ]

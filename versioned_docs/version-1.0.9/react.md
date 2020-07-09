@@ -85,7 +85,7 @@ content.
 
 ## API
 
-As this is a wrapper of the core utility, visit the [API](api) to recall how
+As this is a wrapper of the core utility, visit the [API](api-quick-reference) to recall how
 to take advantage of its cool features/functionalities.
 
 [Back to Top](#overview)

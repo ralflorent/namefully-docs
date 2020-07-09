@@ -18,10 +18,13 @@ const config = {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
     },
-    algolia: {
-      apiKey: "api-key",
-      indexName: "namefully",
+    gtag: {
+        trackingID: 'UA-131799063-2',
     },
+    // algolia: {
+    //   apiKey: "api-key",
+    //   indexName: "namefully",
+    // },
     navbar: {
       hideOnScroll: true,
       title: 'namefully',
@@ -87,7 +90,14 @@ const config = {
             {
               label: 'Feedback',
               href: 'https://github.com/ralflorent/namefully/issues',
-            }
+            },
+            {
+            html: `
+                <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
+                <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" />
+                </a>
+            `,
+            },
           ],
         },
         {
