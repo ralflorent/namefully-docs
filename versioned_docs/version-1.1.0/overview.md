@@ -18,7 +18,7 @@ magic and save you some quality of time.
 - you keep copy-pasting your name-related business logic for every project
 - you're curious about trying new, cool stuff.
 
-## A little of history
+## A little bit of history
 
 At work, the development team deals with many awesome projects that share some
 commonalities. To increase development speed and productivity, we build some utilites
