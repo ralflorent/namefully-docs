@@ -1,6 +1,6 @@
 ---
 id: api-quick-reference
-sidebar_label: API Quick Reference
+sidebar_label: Quick Reference
 title: API Quick Reference
 ---
 
@@ -14,7 +14,7 @@ title: API Quick Reference
 |*getFullname*|`orderedBy`|`null`|`string`|Gets the full name|
 |*getBirthname*|`orderedBy`|`null`|`string`|Gets the birth name, no prefix or suffix|
 |*getInitials*|`orderedBy`, `withMid`|`null`, `false`|`string`|Gets the initials of the first and last names|
-|*describe*|`nameType`|`null`|`Summary`|Gives some descriptive statistics of the characters' distribution.|
+|*describe*|`nameType`|`null`|`Summary`|Gives some descriptive statistics of the characters' distribution|
 |*shorten*|`orderedBy`|`null`|`string`|Returns a typical name (e.g. first and last name)|
 |*compress*|`limit`, `by`|`20`, `middlename`|`string`|Compresses a name using different forms of variants|
 |*username*|none|none|`string[]`|Suggests possible (randomly) usernames closest to the name|
@@ -41,7 +41,7 @@ Some methods are also accessible via aliases:
 |*getInitials*|*inits*|
 |*describe*|*stats*|
 
-For example:
+**Example:**
 
 ```ts
 import { Namefully } from 'namefully'

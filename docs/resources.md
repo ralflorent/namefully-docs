@@ -245,3 +245,5 @@ spell.top          // => A
 spell.frequency    // => 5
 spell.unique       // => 5
 ```
+
+[Back to Top](#name)
