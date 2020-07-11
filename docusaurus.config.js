@@ -21,10 +21,10 @@ const config = {
     gtag: {
         trackingID: 'UA-131799063-2',
     },
-    // algolia: {
-    //   apiKey: "api-key",
-    //   indexName: "namefully",
-    // },
+    algolia: {
+      apiKey: 'efbb6e00899839b667fb5be2b0ba5902',
+      indexName: 'namefully',
+    },
     navbar: {
       hideOnScroll: true,
       title: 'namefully',
