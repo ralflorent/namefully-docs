@@ -50,7 +50,7 @@ yarn add @namefully/ng
 
 ## Usage
 
-When importing the `NamefullyModule` module, you automatically have access to:
+Once you import the `NamefullyModule` module, you automatically have access to:
 
 - **Component**: `<ngx-namefully ...></ngx-namefully>`
 - **Service**: `NamefullyService`
@@ -60,10 +60,11 @@ When importing the `NamefullyModule` module, you automatically have access to:
 **Example:**
 
 ```ts
-import { Component, NgModule, OnInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Component, NgModule, OnInit } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
 
-import { NamefullyModule } from '@namefully/ng';
+import { NamefullyModule, NamefullyService } from '@namefully/ng'
+import { Namefully } from 'namefully'
 
 @Component({
     selector: 'app-root',
@@ -93,16 +94,17 @@ import { NamefullyModule } from '@namefully/ng';
     `
 })
 class AppComponent implements OnInit {
-    name = 'Mr Smith John Joe PhD';
-    superName: Namefully;
+    name: string
+    superName: Namefully
 
     constructor(private service: NamefullyService) {}
 
     ngOnInit(): void {
+        this.name = 'Mr Smith John Joe PhD'
         this.superName = this.service.build(
             this.name,
             /* override forRoot config here if you want */
-        );
+        )
     }
 }
 

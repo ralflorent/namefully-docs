@@ -11,13 +11,15 @@ import TabItem from '@theme/TabItem';
 
 If you are developing an application using the [Angular](https://angular.io)
 framework and want to use `namefully`, you may want to download this package directly
-instead. Why? Because this package already wraps up for you what you might
-need from it.
+instead. Why? Because this package already wraps up for you what you might need
+to stay in the Angular semantics.
 
 The `@namefully/ng` package uses the `namefully` core package as a **peerDependency**.
 Likewise, it assumes also that `@angular/core` is also installed and ready to be
-exploited. If you are doubtful about it, you may want to
-[try it live](https://stackblitz.com/edit/namefully-ng).
+exploited.
+
+If you are doubtful about using `@namefully/ng`, you may want to
+[try it live](https://stackblitz.com/edit/namefully-ng) first.
 
 ## Installation
 
@@ -48,45 +50,69 @@ yarn add @namefully/ng
 
 ## Usage
 
-When importing the `NamefullyModule` module, you automatically have access to:
+Once you import the `NamefullyModule` module, you automatically have access to:
 
-- **Component**: available via the `<ng-namefully/>` selector (HTML tag)
-- **Pipe**: `namefully`
+- **Component**: `<ngx-namefully ...></ngx-namefully>`
+- **Service**: `NamefullyService`
+- **Directive**: `ngxNamefully`
+- **Pipe**: `| namefully`
 
 **Example:**
 
 ```ts
-import { Component, NgModule, OnInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Component, NgModule, OnInit } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
 
-import { NamefullyModule } from '@namefully/ng';
+import { NamefullyModule, NamefullyService } from '@namefully/ng'
+import { Namefully } from 'namefully'
 
 @Component({
     selector: 'app-root',
     template: `
-        <h1> Welcome to Namefully </h1>
-        <a>
-            <ng-namefully
+        <h1> How to use @namefully/ng </h1>
+        <p>
+            Using component: Hello,
+            <ngx-namefully
                 [raw]="name"
-                [options]="options"
-                [method]="method"
-                [args]="args"
-                >
-            </ng-namefully>
-        </a>
-        <p>Hello, {{ name | namefully : options : 'fn' }}!</p>
+                [options]="{ orderedBy: 'ln' }"
+                [method]="'shorten'"
+                >!
+            </ngx-namefully>!
+        </p>
+        <p>Using pipe: Hello,
+            {{ name | namefully : { orderedBy:'ln' } : 'shorten' }}!
+        </p>
+        <p>Using service: Hello, {{ superName.shorten() }}!</p>
+        <p>Using directive: Hello,
+            <span
+                [ngxNamefully]="name"
+                [nfOptions]="{ orderedBy: 'ln' }"
+                nfMethod="shorten"
+            >
+            </span>!
+        </p>
     `
 })
 class AppComponent implements OnInit {
-    name = 'Mr Smith John Joe PhD'
-    options = { orderedBy: 'lastname' }
-    method = 'shorten'
-    args = ['firstname']
-    ngOnInit(): void {}
+    name: string
+    superName: Namefully
+
+    constructor(private service: NamefullyService) {}
+
+    ngOnInit(): void {
+        this.name = 'Mr Smith John Joe PhD'
+        this.superName = this.service.build(
+            this.name,
+            /* override forRoot config here if you want */
+        )
+    }
 }
 
 @NgModule({
-    imports: [BrowserModule, NamefullyModule],
+    imports: [
+        BrowserModule,
+        NamefullyModule.forRoot({ orderedBy: 'lastname' })
+    ],
     declarations: [AppComponent],
     bootstrap: [AppComponent]
 })
