@@ -11,7 +11,7 @@ module.exports = {
         'use-cases'
     ],
     'API': [
-        // 'api',
+        'api',
         'api-quick-reference'
     ],
     'Related Packages': [

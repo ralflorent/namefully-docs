@@ -454,7 +454,7 @@ To sum up, the default values of the optional parameters are:
 
 ## Use of aliases
 
-So far, if there's one thing you (the reader) and me (the author) can agree upon
+So far, if there's one thing you (the reader) and I (the author) can agree upon
 is the fact that the names of the methods, parameters, etc. are somewhat long.
 Days after I wrote this utility, I was like, "No way, I'm gonna keep typing these
 long names." That's how I came up with the aliases. Use them to your convenience.
@@ -462,7 +462,7 @@ long names." That's how I came up with the aliases. Use them to your convenience
 Many of the code snippets that you've read and seen so far can be rewritten in a
 shorter way. That is, every time you see `firstname`, think that there's a chance
 you can short-cut it to `fn`, for example. The list of aliases can be found
-that [here](api-quick-reference#aliases).
+[here](api-quick-reference#aliases).
 
 Let me quickly show the beauty of the aliases for a minute. Take the name of this
 awesome Bachata singer *Juan Luis Guerra* as a sample of the data originated in

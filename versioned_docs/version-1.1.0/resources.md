@@ -5,7 +5,7 @@ title: Resources
 ---
 
 `namefully` provides some ready-made recipes with some extra functionalities. They
-work independently. That is to say, you don't need an instance of `namefully` to
+work independently. That is to say, you don't need an instance of `Namefully` to
 work with a specific name part like a first name, for example.
 
 They are 3 basic classes:

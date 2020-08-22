@@ -21,7 +21,7 @@ magic and save you some quality of time.
 ## A little bit of history
 
 At work, the development team deals with many awesome projects that share some
-commonalities. To increase development speed and productivity, we build some utilites
+commonalities. To increase development speed and productivity, we build some utilities
 that can later be exported and reused across other modules or projects
 (*Well, you might have been doing the same too at your workplace*).
 

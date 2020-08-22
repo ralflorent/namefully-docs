@@ -4,6 +4,9 @@ sidebar_label: Use Cases
 title: Use Cases
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Name cases
 
 Considering the diverse ways of instantiating `Namefully`, I use the following
@@ -88,15 +91,43 @@ export const NAMECASES: NameCase[] = [
 
 Run the following command:
 
-```bash
+<Tabs
+defaultValue="npm"
+values={[
+{ label: 'npm', value: 'npm', },
+{ label: 'Yarn', value: 'yarn', },
+]
+}>
+<TabItem
+    value="npm">
+
+```sh
 npm run usecases
 ```
 
 Or
 
-```bash
+```sh
 npm run uc
 ```
+
+</TabItem>
+<TabItem value="yarn"
+>
+
+```sh
+yarn run usecases
+```
+
+Or
+
+```sh
+yarn run uc
+```
+
+</TabItem>
+
+</Tabs>
 
 ## Outputs
 
