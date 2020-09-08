@@ -93,11 +93,31 @@ const name1 = new Namefully('Justin Pierre Trudeau')
 console.log(name1.getMiddlenames()) // => ['Pierre']
 
 const name2 = new Namefully([ 'Justin', 'Pierre James', 'Trudeau' ])
-console.log(name2.getMiddlenames()) // => ['Pierre', 'James']
+console.log(name2.getMiddlenames()) // => ['Pierre James']
 
 // full name with no middle names
 const name3 = new Namefully('Justin Trudeau')
 console.log(name3.getMiddlenames()) // => []
+```
+
+:::tip
+You may want to handle subparts of the middle name separately. To do so, use the
+class `Name` along with the `Namon` enum to set the name type as `MIDDLE_NAME`
+for each name part.
+:::
+
+**Example:**
+
+```ts
+import { Namefully, Name, Namon } from 'namefully'
+
+const name = new Namefully([
+    new Name('Justin', Namon.FIRST_NAME),
+    new Name('Pierre', Namon.MIDDLE_NAME),
+    new Name('James', Namon.MIDDLE_NAME),
+    new Name('Trudeau', Namon.LAST_NAME),
+])
+console.log(name.getMiddlenames()) // => ['Pierre', 'James']
 ```
 
 ## `getLastname(format)`
@@ -166,4 +186,76 @@ console.log(name1.getSuffix()) // => 'PhD'
 // full name without suffix
 const name2 = new Namefully('Fabrice Piazza')
 console.log(name2.getSuffix()) // => ''
+```
+
+## `getFullname(orderedBy)`
+
+**Alias:** `full(orderedBy)`
+
+Gets the full name (the five name parts, if set).
+
+### `orderedBy`
+
+This string argument overrides the preset order of appearance of a full name: by
+first name or last name. If none was set initially, `Namefully` assumes a default
+order, which by first name.
+
+**Example:**
+
+```ts
+import { Namefully, FullnameBuilder } from 'namefully'
+
+const name1 = new Namefully('Steve Jobs')
+console.log(name1.getFullname()) // => 'Steve Jobs'
+console.log(name1.getFullname('lastname')) // => 'Jobs Steve'
+
+const name2 = new Namefully('Jobs Steve', { orderedBy: 'lastname' })
+console.log(name2.getFullname()) // => 'Jobs Steve'
+console.log(name2.getFullname('firstname')) // => 'Steve Jobs'
+
+const name3 = new Namefully(
+    new FullnameBuilder()
+        .prefix('Mr')
+        .firstname('Steven', 'Paul')
+        .lastname('Jobs')
+        .build(),
+)
+console.log(name3.getFullname()) // => 'Mr Steven Paul Jobs'
+console.log(name3.getFullname('lastname')) // => 'Mr Jobs Steven Paul'
+```
+
+## `getBirthname(orderedBy)`
+
+**Alias:** `birth(orderedBy)`
+
+Gets the birth name ordered as configured. No prefix or suffix are included.
+
+### orderedBy
+
+This string argument overrides the preset order of appearance of a full name: by
+first name or last name. If none was set initially, `Namefully` assumes a default
+order, which by first name.
+
+**Example:**
+
+```ts
+import { Namefully, FullnameBuilder } from 'namefully'
+
+const name1 = new Namefully('Bill Gates')
+console.log(name1.getBirthname()) // => 'Bill Gates'
+console.log(name1.getBirthname('lastname')) // => 'Gates Bill'
+
+const name2 = new Namefully('Gates Bill', { orderedBy: 'lastname' })
+console.log(name2.getBirthname()) // => 'Gates Bill'
+console.log(name2.getBirthname('firstname')) // => 'Bill Gates'
+
+const name3 = new Namefully(
+    new FullnameBuilder()
+        .firstname('William', 'Henry')
+        .lastname('Gates')
+        .suffix('III')
+        .build(),
+)
+console.log(name3.getBirthname()) // => 'William Henry Gates'
+console.log(name3.getBirthname('lastname')) // => 'Gates William Henry'
 ```
