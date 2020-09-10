@@ -57,9 +57,7 @@ unusual use cases for a full name, you may want to use `Firstname` to treat mult
 pieces of name as `firstname`, assuming they are not middle names.
 :::
 
-### `includeAll`
-
-A boolean argument set to `true` by default that decides whether or not to include
+**`includeAll`**: a boolean argument set to `true` by default that decides whether or not to include
 all the pieces of the first name as a given name may be composed of one or more
 pieces of name.
 
@@ -126,9 +124,7 @@ console.log(name.getMiddlenames()) // => ['Pierre', 'James']
 
 Gets the last name part of the full name.
 
-### `format`
-
-This string argument overrides the how-to format of a surname output (previously
+**`format`**: this string argument overrides the how-to format of a surname output (previously
 set in config), considering its subparts. The last name format can be of the
 following:
 
@@ -194,9 +190,7 @@ console.log(name2.getSuffix()) // => ''
 
 Gets the full name (the five name parts, if set).
 
-### `orderedBy`
-
-This string argument overrides the preset order of appearance of a full name: by
+**`orderedBy`**: this string argument overrides the preset order of appearance of a full name: by
 first name or last name. If none was set initially, `Namefully` assumes a default
 order, which by first name.
 
@@ -230,9 +224,7 @@ console.log(name3.getFullname('lastname')) // => 'Mr Jobs Steven Paul'
 
 Gets the birth name ordered as configured. No prefix or suffix are included.
 
-### orderedBy
-
-This string argument overrides the preset order of appearance of a full name: by
+**`orderedBy`**: this string argument overrides the preset order of appearance of a full name: by
 first name or last name. If none was set initially, `Namefully` assumes a default
 order, which by first name.
 
@@ -258,4 +250,195 @@ const name3 = new Namefully(
 )
 console.log(name3.getBirthname()) // => 'William Henry Gates'
 console.log(name3.getBirthname('lastname')) // => 'Gates William Henry'
+```
+
+## `getInitials(orderedBy, withMid)`
+
+**Alias:** `inits(orderedBy, withMid)`
+
+Gets the initials of the full name.
+
+- **`orderedBy`**: this string argument overrides the preset order of appearance of a full name: by
+first name or last name. If none was set initially, `Namefully` assumes a default
+order, which is by first name.
+
+- **`withMid`**: this boolean argument indicates whether to include the initials of the middle names,
+if that name part was set. Otherwise, by setting this parameter to `true` when
+no middle name was set in the beginning, this argument will only give a warning.
+By default, it's `false`.
+
+**Example:**
+
+```ts
+import { Namefully, FullnameBuilder } from 'namefully'
+
+const name1 = new Namefully('Hillary Clinton')
+console.log(name1.getInitials()) // => ['H', 'C']
+console.log(name1.getInitials('lastname')) // => ['C', 'H']
+console.log(name1.getInitials('lastname', true)) // => ['C', 'H'] + warning
+
+const name2 = new Namefully(
+    new FullnameBuilder()
+        .firstname('Hillary')
+        .midllename('Diane', 'Rodham')
+        .lastname('Clinton')
+        .build(),
+)
+console.log(name2.getInitials()) // => ['H', 'C']
+console.log(name2.getInitials('firstname', true)) // => ['H', 'D', 'R', 'C']
+console.log(name2.getInitials('lastname')) // => ['C', 'H']
+console.log(name2.getInitials('lastname', true)) // => ['C', 'H', 'D', 'R']
+```
+
+## `describe(nameType)`
+
+**Alias:** `stats(nameType)`
+
+Gives some descriptive statistics that summarize the central tendency, dispersion
+and shape of the characters' distribution.
+
+Treated as a categorical dataset, the summary of a name contains the following info:
+
+- *count* : the number of *unrestricted* characters of the name;
+- *frequency* : the highest frequency within the characters;
+- *top* : the character with the highest frequency;
+- *unique* : the count of unique characters of the name;
+- *distribution* : the characters' distribution.
+
+**`nameType`**: this string argument indicates which name type to use when describing a full name.
+By default, the full name is described.
+
+**Example:**
+
+```ts
+const name = new Namefully('Bob Marley')
+console.log(name.describe()) // => describes the full name
+console.log(name.describe('firstname')) // => describes the first name
+console.log(name.describe('lastname')) // => describes the last name
+console.log(name.describe('middlename')) // => null + warning
+```
+
+## `shorten(orderedBy)`
+
+Shortens a full name to a simpler typical name, a combination of first name and
+last name.
+
+**`orderedBy`**: this string argument overrides the preset order of appearance of a full name: by
+first name or last name. If none was set initially, `Namefully` assumes a default
+order, which is by first name.
+
+**Example:**
+
+For a given name such as *Mr Keanu Charles Reeves*, shortening this name is
+equivalent to making it *Keanu Reeves*.
+
+```ts
+const name = new Namefully('Mr Keanu Charles Reeves')
+console.log(name.shorten()) // => Keanu Reeves
+console.log(name.shorten('lastname')) // => Reeves Keanu
+```
+
+:::important
+As a shortened name, the namon of the first name is favored over the other names
+forming part of the entire first names, if any. Meanwhile, for the last name, the
+configured `lastnameFormat` is prioritized.
+
+For a given `Firstname Fathername Mothername`, shortening this name when the
+`lastnameFormat` is set as `mother` is equivalent to making it: `Firstname Mothername`.
+:::
+
+```ts
+import { Namefully, Firstname, Lastname } from 'namefully'
+
+const name = new Namefully([
+    new Firstname('Karla', 'Camila'),
+    new Lastname('Cabello', 'Estrabao'),
+], { lastnameFormat: 'mother' })
+console.log(name.getFullname()) // => Karla Camila Estrabao
+console.log(name.shorten()) // => Karla Estrabao
+console.log(name.shorten('lastname')) // => Estrabao Karla
+```
+
+## `compress(limit, by, warning)`
+
+Compresses a name, using different forms of variants. A name is *compressed* (or
+shortened using its initials) when the length of the name's characters surpasses
+the indicated limit. If after compressing the name, the new length of the compressed
+name still surpasses the limit, the user receives a warning about it.
+
+- **`limit`**: this number argument sets the threshold to limit the number of characters. The
+default value is 20.
+
+- **`by`**: this string argument specifies which variant to use when compressing a long birth
+name. These variants are:
+  - *firstname* or *fn*
+  - *middlename* or *mn*
+  - *lastname* or *ln*
+  - *firstmid* or *fm* (combination of first name and middle name)
+  - *lastmid* or *lm* (combination of middle name and last name)
+
+By default, this method compresses the birth name using the *middlename* variant.
+
+- **`warning`**: this boolean argument indicates whether an end-user should be warned when the set
+limit is violated.
+
+:::tip
+You may want to always compress the birth names. A good tip to run this effect
+silently is to use the method as follows: `compress(0, 'firstmid', false)`. Or,
+you can simply use the [zip](#zipby) method.
+:::
+
+**Example:**
+
+```ts
+import { Namefully, FullnameBuilder } from 'namefully'
+
+const limit = 20
+const name = new Namefully(
+    new FullnameBuilder()
+        .firstname('John')
+        .middlename('Winston', 'Ono')
+        .lastname('Lennon')
+        .build()
+)
+console.log(name.compress(limit, 'firstname')) // => J. Winston Ono Lennon
+console.log(name.compress(limit, 'lastname')) // => John Winston Ono L.
+console.log(name.compress(limit, 'middlename')) // => John W. O. Lennon
+console.log(name.compress(limit, 'firstmid')) // => J. W. O. Lennon
+console.log(name.compress(limit, 'midlast')) // => John W. O. L.
+```
+
+## `zip(by)`
+
+Shortens or abbreviates parts of a birth name, using its initials. This method is
+a silent wrapper of the [compress](#compresslimit-by-warning) method.
+
+**`by`**: this string argument specifies which variant to use when compressing a long birth
+name. These variants are:
+
+- *firstname* or *fn*
+- *middlename* or *mn*
+- *lastname* or *ln*
+- *firstmid* or *fm* (combination of first name and middle name)
+- *lastmid* or *lm* (combination of middle name and last name)
+
+**Example:**
+
+Using the same classic examples used in the previous examples:
+
+```ts
+import { Namefully, FullnameBuilder } from 'namefully'
+
+const name = new Namefully(
+    new FullnameBuilder()
+        .firstname('John')
+        .middlename('Winston', 'Ono')
+        .lastname('Lennon')
+        .build()
+)
+console.log(name.zip('firstname')) // => J. Winston Ono Lennon
+console.log(name.zip('lastname')) // => John Winston Ono L.
+console.log(name.zip('middlename')) // => John W. O. Lennon
+console.log(name.zip('firstmid')) // => J. W. O. Lennon
+console.log(name.zip('midlast')) // => John W. O. L.
 ```

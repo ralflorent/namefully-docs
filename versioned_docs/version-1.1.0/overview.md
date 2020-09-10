@@ -9,7 +9,7 @@ description: namefully is a JavaScript utility for handling person names, includ
 
 `namefully` does **not** magically guess which part of a person's name is what.
 It relies actually on how you indicate the name parts' roles so that it can do its
-magic and save you some quality of time.
+magic and save you some quality time.
 
 **You may want to use this library if:**
 

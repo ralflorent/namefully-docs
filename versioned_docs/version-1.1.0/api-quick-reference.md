@@ -19,7 +19,7 @@ title: API Quick Reference
 |*compress*|`limit`, `by`|`20`, `middlename`|`string`|Compresses a name using different forms of variants|
 |*username*|none|none|`string[]`|Suggests possible (randomly) usernames closest to the name|
 |*format*|`how`|`null`|`string`|Formats the name as desired|
-|*zip*|`nameType`|`null`|`string`|Shortens a full name|
+|*zip*|`by`|`middlename`|`string`|Shortens a full name|
 |*size*|none|none|`number`|Returns the count of characters of the birth name, excluding punctuations|
 |*ascii*|`options`|`{}`|`number[]`|Returns an ascii representation of each characters|
 |*to*|`case`|none|`string`|Transforms a birth name to a specific title case|
