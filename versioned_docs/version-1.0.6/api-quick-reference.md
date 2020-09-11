@@ -4,6 +4,8 @@ sidebar_label: Quick Reference
 title: API Quick Reference
 ---
 
+## Quick Peek
+
 | Methods | Arguments | Default | Returns | Description |
 |---|---|---|---|---|
 |*getPrefix*|none|none|`string`|Gets the prefix part of the full name, if any|

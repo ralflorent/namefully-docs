@@ -4,6 +4,8 @@ sidebar_label: Quick Reference
 title: API Quick Reference
 ---
 
+## Quick Peek
+
 | Methods | Arguments | Default | Returns | Description |
 |---|---|---|---|---|
 |*getPrefix*|none|none|`string`|Gets the prefix part of the full name, if any|
@@ -16,7 +18,7 @@ title: API Quick Reference
 |*getInitials*|`orderedBy`, `withMid`|`null`, `false`|`string`|Gets the initials of the first and last names|
 |*describe*|`nameType`|`null`|`Summary`|Gives some descriptive statistics of the characters' distribution|
 |*shorten*|`orderedBy`|`null`|`string`|Returns a typical name (e.g. first and last name)|
-|*compress*|`limit`, `by`|`20`, `middlename`|`string`|Compresses a name using different forms of variants|
+|*compress*|`limit`, `by`, `warning`|`20`, `middlename`, `true`|`string`|Compresses a name using different forms of variants|
 |*username*|none|none|`string[]`|Suggests possible (randomly) usernames closest to the name|
 |*format*|`how`|`null`|`string`|Formats the name as desired|
 |*zip*|`by`|`middlename`|`string`|Shortens a full name|

@@ -4,10 +4,6 @@ sidebar_label: Specs
 title: API Specifications
 ---
 
-:::caution
-This section is a work in progress.
-:::
-
 The API specifications are the verbs `namefully` speaks.
 
 ## `getPrefix()`
@@ -442,3 +438,171 @@ console.log(name.zip('middlename')) // => John W. O. Lennon
 console.log(name.zip('firstmid')) // => J. W. O. Lennon
 console.log(name.zip('midlast')) // => John W. O. L.
 ```
+
+## `username()`
+
+Suggests 10 possible (randomly) usernames closest to the typical name. These
+usernames are formed, obeying the following rules:
+
+- first name + last name
+- last name + first name
+- first letter of first name + last name
+- first letter of last name + first name
+- first letter of first name + period + last name
+- first letter of last name + period + first name
+- first 2 letters of first name + last name
+- first 2 letters of last name + first name
+- first 2 letters of first name + period + last name
+- first 2 letters of last name + period + first name
+
+:::important
+The validity of these usernames are not checked against any social media or web
+apps online.
+:::
+
+**Example:**
+
+```ts
+const name = new Namefully('Jane Doe')
+console.log(name.username()) // =>
+/*
+[
+    'janedoe',
+    'doejane',
+    'jdoe',
+    'djane',
+    'j.doe',
+    'd.jane',
+    'jadoe',
+    'dojane',
+    'ja.doe',
+    'do.jane'
+]
+*/
+```
+
+## `format(how)`
+
+Formats the name as desired.
+
+**`how`**: this string argument defines how to format the name:
+
+- string format
+  - `short`: typical first name and last name
+  - `long`: birth name without prefix and suffix
+  - `official`: official document format
+
+- char format
+  - `b`: birth name
+  - `B`: capitalized birth name
+  - `f`: first name
+  - `F`: capitalized first name
+  - `l`: last name
+  - `L`: capitalized last name
+  - `m`: middle names
+  - `M`: capitalized middle names
+  - `o`: official document format
+  - `O`: official document format in capital letters
+  - `p`: prefix
+  - `P`: capitalized prefix
+  - `s`: suffix
+  - `S`: capitalized suffix
+
+- punctuations
+  - `.`: period
+  - `,`: comma
+  - `' '`: space
+  - `-`: hyphen
+  - `_`: underscore
+
+**Example:**
+
+```ts
+const name = new Namefully('Mr John Joe Smith PhD')
+console.log(name.format('short')) // => John Smith
+console.log(name.format('long')) // => John Joe Smith
+console.log(name.format('l f')) // => Smith John
+console.log(name.format('L, f')) // => SMITH, John
+console.log(name.format()) // => Mr SMITH, John Joe PhD
+```
+
+## `size()`
+
+Returns the count of characters of the birth name, while excluding the punctuations.
+Keep in mind that more statistical information can be found when using the
+[describe](#describenametype) method.
+
+**Example:**
+
+```ts
+const name = new Namefully('Ralph Florent')
+console.log(name.size()) // => 12
+```
+
+## `ascii({nameType, exceptions})`
+
+Returns an ascii representation of each characters of a name as specified.
+
+**`nameType`**: this string argument indicates which name type to use when representing
+that name in ascii. By default, the full name is represented.
+
+**`exceptions`**: list of restricted characters that are skipped during the conversion.
+
+**Example:**
+
+```ts
+const name = new Namefully('Penélope Cruz')
+name.ascii({ nameType: 'lastname' }) // => [ 67, 114, 117, 122 ]
+name.ascii({ nameType: 'lastname', exceptions: ['u'] }) // => [ 67, 114, 122 ]
+```
+
+## `to(case)`
+
+Transforms a birth name to a specific title case.
+
+**`case`**: this string argument defines the case for the conversion:
+
+- `upper`
+- `lower`
+- `camel`
+- `pascal`
+- `snake`
+- `hyphen`
+- `dot`
+- `toggle`
+
+**Example:**
+
+```ts
+const name = new Namefully('Leonardo DiCaprio')
+console.log(name.to('upper')) // => LEONARDO DICAPRIO
+console.log(name.to('lower')) // => leonardo dicaprio
+console.log(name.to('camel')) // => leonardoDicaprio
+console.log(name.to('pascal')) // => LeonardoDicaprio
+console.log(name.to('snake')) // => leonardo_dicaprio
+console.log(name.to('hyphen')) // => leonardo-dicaprio
+console.log(name.to('dot')) // => leonardo.dicaprio
+console.log(name.to('toggle')) // => lEONARDO dICAPRIO
+```
+
+## `passwd(nameType)`
+
+Returns a password-like representation of a name.
+
+**`nameType`**: this string argument indicates which name type to use as a basis
+to generate a password-like string content. If none is provided, the full name
+is used as a basis.
+
+**Example:**
+
+```ts
+const name = new Namefully('Kate Winslet')
+console.log(name.passwd('firstname')) // => KA73
+console.log(name.passwd('firstname')) // => %4tE
+console.log(name.passwd()) // => %a[E4Win5LeT
+```
+
+More examples on how to use these methods can be found in [Examples](examples) and
+[Use Cases](use-cases).
+
+[Back to Top](#getprefix)
