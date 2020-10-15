@@ -3,7 +3,7 @@ const versions = require("./versions.json");
 const config = {
   title: 'namefully',
   tagline: 'A JavaScript utility for handling person names',
-  url: 'https://namefully.netlify.app',
+  url: 'https://namefully.dev',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'ralflorent',
