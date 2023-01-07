@@ -1,0 +1,64 @@
+{
+    "version-1.2.0/docs": [
+        {
+            "type": "category",
+            "label": "Get Started",
+            "items": [
+                {
+                    "type": "doc",
+                    "id": "version-1.2.0/overview"
+                },
+                {
+                    "type": "doc",
+                    "id": "version-1.2.0/installation"
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Usage",
+            "items": [
+                {
+                    "type": "doc",
+                    "id": "version-1.2.0/syntax"
+                },
+                {
+                    "type": "doc",
+                    "id": "version-1.2.0/resources"
+                },
+                {
+                    "type": "doc",
+                    "id": "version-1.2.0/examples"
+                },
+                {
+                    "type": "doc",
+                    "id": "version-1.2.0/use-cases"
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "API",
+            "items": [
+                {
+                    "type": "doc",
+                    "id": "version-1.2.0/api-quick-reference"
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Related Packages",
+            "items": [
+                {
+                    "type": "doc",
+                    "id": "version-1.2.0/angular"
+                },
+                {
+                    "type": "doc",
+                    "id": "version-1.2.0/react"
+                }
+            ]
+        }
+    ]
+}
