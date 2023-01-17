@@ -90,8 +90,7 @@ that might not make sense to you in the first place. Some of them are:
 - `Nama`: refers to a group of *Namon*, which I denominate **nama** (just like in
 criterion/criteria). For example, joining both *firstname* and  *lastname* is called a *Nama*.
 - `Name`: is a class representing a namon (a piece of name as string) with some
-extra capabilities. For example, you can capitalize a namon, extract its initials,
-compute summary, and more.
+extra capabilities. For example, you can capitalize a namon, extract its initials, and more.
 - `FullName`: refers to all the 5 name parts (*Namon*) combined together. Know that
 all of them may not be defined in some cases.
 

@@ -27,12 +27,13 @@ const fromName = new Namefully([
 
 const FullControl = () => (
     <CodeBlock className="language-typescript">
-        {`import { Namefully, NameOrder, Title } from 'namefully'
+        {`import { Namefully, NameOrder, Title, Separator } from 'namefully'
 
 const name = new Namefully(
     'Lic, De La Cruz, Rosanna, María',
     {
         orderedBy: NameOrder.LAST_NAME,
+        separator: Separator.COMMA,
         title: Title.US
     }
 )
@@ -58,7 +59,7 @@ class SimpleParser extends Parser<string> {
     }
 }
 
-const name = new Namefully(SimpleParser('Juan#Garcia'))
+const name = new Namefully(new SimpleParser('Juan#Garcia'))
 name.full // Juan Garcia`}
     </CodeBlock>
 )
