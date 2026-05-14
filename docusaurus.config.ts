@@ -48,7 +48,7 @@ const config: Config = {
             '1.3.1': {
               label: '1.3.1',
               path: '1.3.1',
-              banner: 'unmaintained',
+              banner: 'none',
             },
           },
         },
