@@ -22,13 +22,13 @@ new Namefully('Mr John Joe Smith PhD');
 | --- | --- | --- | --- |
 | `'John Smith'` | `John` | — | `Smith` |
 | `'John Joe Smith'` | `John` | `Joe` | `Smith` |
-| `'John Joe Allen Smith'` | `John` | `Joe Allen` | `Smith` |
+| `'John Joe Allen Smith'`<sup>[1]</sup> | `Joe` | `Allen` | `Smith` |
 
-Any tokens between the first and last become middle names.
+<sup>[1]</sup> When more than 3 tokens are present, additional ones considered to be prefixes or suffixes.
 
 ## Prefixes and suffixes
 
-If the first token looks like a known prefix (`Mr`, `Dr`, `Mrs`, etc.) it gets placed in the `prefix` slot. Same for known suffixes at the end (`PhD`, `Jr`, `III`).
+Given the number of tokens, the library will determine which ones are prefixes and suffixes.
 
 ```ts
 const name = new Namefully('Mr John Joe Smith PhD');

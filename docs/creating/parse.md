@@ -5,7 +5,7 @@ description: Two static methods for parsing a plain string into a Namefully — 
 sidebar_position: 5
 ---
 
-# `Namefully.parse()` and `Namefully.tryParse()`
+# Namefully Parsing
 
 The `Namefully` constructor is strict and synchronous. It takes a string, an array, a JSON object, or a `Parser`, and throws if any of them is malformed.
 

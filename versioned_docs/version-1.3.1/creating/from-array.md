@@ -12,10 +12,10 @@ Sometimes the parts are already split — they came out of a form, a CSV row, an
 ```ts
 import { Namefully } from 'namefully';
 
-new Namefully(['Jane', 'Doe']);                  // first + last
-new Namefully(['Jane', 'Marie', 'Doe']);         // first + middle + last
-new Namefully(['Ms', 'Jane', 'Marie', 'Doe']);   // prefix + first + middle + last
-new Namefully(['Ms', 'Jane', 'Doe', 'PhD']);     // prefix + first + last + suffix
+new Namefully(['Jane', 'Doe']);                       // first + last
+new Namefully(['Jane', 'Marie', 'Doe']);              // first + middle + last
+new Namefully(['Ms', 'Jane', 'Marie', 'Doe']);        // prefix + first + middle + last
+new Namefully(['Ms', 'Jane', 'Marie', 'Doe', 'PhD']); // prefix + first + middle + last + suffix
 ```
 
 The array is treated positionally, biased by `orderedBy`. With the default `FIRST_NAME` order:
@@ -24,10 +24,8 @@ The array is treated positionally, biased by `orderedBy`. With the default `FIRS
 | --- | --- |
 | 2 | `[first, last]` |
 | 3 | `[first, middle, last]` |
-| 4 | `[prefix, first, last, suffix]` or `[prefix, first, middle, last]` |
+| 4 | `[prefix, first, middle, last]` |
 | 5 | `[prefix, first, middle, last, suffix]` |
-
-The 4-element case is ambiguous on its face — namefully resolves it by looking at whether the first and last tokens look like a known prefix/suffix.
 
 ## Switching the order
 

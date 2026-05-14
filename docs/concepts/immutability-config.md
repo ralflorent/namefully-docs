@@ -11,7 +11,7 @@ Two design decisions shape how you use the library day-to-day. Both are worth kn
 
 ## Names are immutable
 
-A `Namefully` instance, once constructed, doesn't change. You can't reassign its first name, swap its order, or fix a typo. If the name is wrong, you build a new one.
+A `Namefully` instance, once constructed, doesn't change. You can't reassign its first name or fix a typo. If the name is wrong, you build a new one.
 
 ```ts
 const name = new Namefully('Jane Doe');
@@ -31,7 +31,7 @@ The library uses a **multiton pattern** for configuration. Each `Config` is iden
 What this means in practice:
 
 ```ts
-import { Namefully, NameOrder, Title } from 'namefully';
+import { Namefully, Title } from 'namefully';
 
 // These two instances have unrelated configuration.
 const usName = new Namefully('Jane Smith', { name: 'us', title: Title.US });

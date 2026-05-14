@@ -67,16 +67,18 @@ name.has('m');          // true (middle exists)
 
 ## Equality
 
-`Namefully` provides a deep `.equal()` check:
+`Namefully` provides a `.equal()` and `.deepEqual()` check:
 
 ```ts
-const a = new Namefully('John Smith');
-const b = new Namefully('John Smith');
-const c = new Namefully('John Smith', { title: 'US' });
+const a = new Namefully('John Ben Smith');
+const b = new Namefully([new FirstName('John', 'Ben'), new LastName('Smith')]);
+const c = new Namefully([Name.first('John'), Name.middle('Ben'), Name.last('Smith')]);
 
-a.equal(b); // true
-a.equal(c); // false — different Config
-a === b;    // false — different instances
+a.equal(b);     // true
+a.deepEqual(b); // false
+a.equal(c);     // true
+a.deepEqual(c); // true
+a === b;        // false — different instances
 ```
 
 Two instances are equal when:

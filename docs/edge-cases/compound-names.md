@@ -41,8 +41,8 @@ The validators treat apostrophes as valid name characters by default.
 A first name can carry additional given names. The simplest input is a plain string with whitespace:
 
 ```ts
-new Namefully('Jane Marie Louise Doe').middle; // 'Marie'
-// 'Marie' and 'Louise' both become middle names in the default model
+Namefully.tryParse('Jane Marie Louise Doe')?.middle; // 'Marie'
+// 'Marie' and 'Louise' both become middle names in this model
 ```
 
 If you want them to live on the `FirstName` side rather than spill into middle names, use the `FirstName` constructor explicitly:

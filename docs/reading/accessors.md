@@ -60,7 +60,6 @@ A few callable methods feel like properties — they return computed values with
 name.fullName();           // 'Mr John Joe Smith PhD' (alias for .full)
 name.fullName('lastName'); // 'Smith John Joe' (override order)
 name.middleName();         // ['Joe']
-name.middleName(true);     // 'Joe' (joined)
 name.initials();           // ['J', 'J', 'S']
 name.initials({ only: 'firstName' });  // ['J']
 name.initials({ asJson: true });       // { firstName: ['J'], middleName: ['J'], lastName: ['S'] }

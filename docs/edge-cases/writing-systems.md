@@ -43,8 +43,6 @@ If you need to accept names from any of these systems, either leave `bypass: tru
 When `bypass: false`, the validators also check:
 
 - **Minimum length**: each name part must be at least 1 character.
-- **Prefix shape**: a prefix has to match the known list (`Mr`, `Mrs`, `Miss`, `Ms`, `Dr`, `Prof`, etc.) up to title casing.
-- **Suffix shape**: a suffix has to match the known list (`Jr`, `Sr`, `I`–`V`, `PhD`, `MD`, etc.) up to spacing and periods.
 - **Structural rules**: the name must have at least a first and a last name unless `Config.mono` is on.
 
 Any of these failing throws a `ValidationError` — see [Error handling](./error-handling.md).

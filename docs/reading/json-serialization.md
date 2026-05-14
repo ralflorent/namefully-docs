@@ -7,7 +7,7 @@ sidebar_position: 5
 
 # JSON serialization
 
-:::info v2-only feature
+:::info
 This page covers `serialize()` / `deserialize()`. v1.3.1 accepts the hierarchical JSON shape as **input**, but it cannot serialize a `Namefully` _out_ to JSON, nor reconstruct one from JSON. If you're on v1, see [Migrating from v1](../migrating-from-v1.md).
 :::
 

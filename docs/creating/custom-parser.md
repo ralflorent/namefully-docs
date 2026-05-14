@@ -1,6 +1,6 @@
 ---
 id: custom-parser
-title: Custom Parser&lt;T&gt;
+title: "Custom Parser<T>"
 description: Subclass Parser to teach Namefully any input shape you like.
 sidebar_position: 7
 ---
@@ -56,7 +56,7 @@ new FullName(options)
 
 ## Built-in parser subclasses
 
-For reference, the library ships these parser classes — the constructor uses them internally:
+For reference, the library does not ship these parser classes — the constructor uses them internally:
 
 | Class | Accepts |
 | --- | --- |
@@ -66,7 +66,7 @@ For reference, the library ships these parser classes — the constructor uses t
 | `NamaParser` | a `JsonName` object |
 | `MonoParser` | a single `string` or `Name` (mononym only) |
 
-You can subclass any of these too if you want to override one piece of behaviour. Subclassing `Parser` directly is the right call when your input type isn't one of those five.
+Subclassing `Parser` directly is the right call when your input type isn't one of those five.
 
 ## Why bother
 

@@ -62,10 +62,10 @@ A `FullName` is all five namon — at most — composed into one object. It's th
 A short cheat sheet of the relationships:
 
 ```
-Namefully     — the public class you instantiate
-  └── FullName  — its internal name container
+Namefully                      — the public class you instantiate
+└── FullName                   — its internal name container
         └── Name × up to 5     — one per namon (slot)
-              └── Namon         — the slot tag
+              └── Namon        — the slot tag
 ```
 
 That's the whole vocabulary. Everything else is just method names.
