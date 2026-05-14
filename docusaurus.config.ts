@@ -19,8 +19,7 @@ const config: Config = {
   organizationName: 'ralflorent',
   projectName: 'namefully',
 
-  // Temporarily 'warn' while we author docs; flip to 'throw' before opening the PR.
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
@@ -76,10 +75,44 @@ const config: Config = {
         explicitSearchResultPath: true,
       },
     ],
+    [
+      'docusaurus-plugin-typedoc',
+      {
+        id: 'api-current',
+        entryPoints: ['node_modules/namefully-v2/dist/esm/index.d.ts'],
+        tsconfig: 'typedoc.tsconfig.json',
+        out: 'docs/api',
+        readme: 'none',
+        cleanOutputDir: true,
+        skipErrorChecking: true,
+        disableSources: true,
+        plugin: ['typedoc-plugin-markdown'],
+        sidebar: {
+          autoConfiguration: false,
+        },
+      },
+    ],
+    [
+      'docusaurus-plugin-typedoc',
+      {
+        id: 'api-v1.3.1',
+        entryPoints: ['node_modules/namefully-v1/dist/types/index.d.ts'],
+        tsconfig: 'typedoc.tsconfig.json',
+        out: 'versioned_docs/version-1.3.1/api',
+        readme: 'none',
+        cleanOutputDir: true,
+        skipErrorChecking: true,
+        disableSources: true,
+        plugin: ['typedoc-plugin-markdown'],
+        sidebar: {
+          autoConfiguration: false,
+        },
+      },
+    ],
   ],
 
   themeConfig: {
-    image: 'img/namefully-social-card.png',
+    image: 'img/logo.svg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -104,7 +137,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/docs/api',
+          to: '/docs/api/',
           label: 'API',
           position: 'left',
         },

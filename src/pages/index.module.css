@@ -1,8 +1,3 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -20,4 +15,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.showcase {
+  padding: 4rem 0;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.showcaseCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.showcaseCopy h2 {
+  margin-bottom: 1rem;
+}
+
+.showcaseCopy p {
+  margin-bottom: 1rem;
+}
+
+.showcaseCopy .button {
+  align-self: flex-start;
 }
