@@ -187,8 +187,8 @@ const config: Config = {
             },
             {
               html: `
-                <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
-                  <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" />
+                <a href="https://app.netlify.com/sites/namefully/deploys" target="_blank" rel="noreferrer noopener" aria-label="Netlify deploy status">
+                  <img src="https://api.netlify.com/api/v1/badges/f46ebaa4-5a2a-42d4-821e-2cfc63ce5de7/deploy-status" alt="Netlify deploy status" />
                 </a>
               `,
             },
