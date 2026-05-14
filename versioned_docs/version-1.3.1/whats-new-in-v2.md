@@ -48,7 +48,7 @@ v1.3.1 _accepts_ the hierarchical name shape as **input** (`new Namefully({ firs
 
 The following are present in **both** v1.3.1 and v2.2.0:
 
-- `Namefully.parse()` — the lenient parser.
+- `Namefully.parse()` (async, throwing) and `Namefully.tryParse()` (sync, `undefined` on failure) — the two static text helpers.
 - `NameBuilder` with `prebuild` / `postbuild` / `preclear` / `postclear` lifecycle hooks.
 - `NameIndex` for non-standard layouts.
 - Custom `Parser<T>` subclasses.

@@ -92,6 +92,6 @@ try {
 
 If you want to give different feedback for "we couldn't parse what you typed" vs "what you typed isn't a real name", branch on `InputError` vs `ValidationError`. For the rest, the base class is fine.
 
-## Working with `Namefully.parse()`
+## Working with `Namefully.tryParse()`
 
-If you'd rather not write a try/catch at all, the lenient `Namefully.parse()` returns `null` instead of throwing on `InputError` and `ValidationError`. See [`Namefully.parse()`](../creating/parse.md).
+If you'd rather not write a try/catch at all, `Namefully.tryParse()` is the synchronous helper that returns `undefined` instead of throwing on parse and validation failures. Its async sibling `Namefully.parse()` _does_ throw — wrapped in a rejected promise. See [`parse()` and `tryParse()`](../creating/parse.md).

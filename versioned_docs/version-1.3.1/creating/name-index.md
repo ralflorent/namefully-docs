@@ -44,16 +44,16 @@ NameIndex.only({
 
 Each value is a **zero-based token index** into the input. Tokens that no slot points to are silently ignored.
 
-## Use with `tryParse` or `parse`
+## Use with `parse()` or `tryParse()`
 
-`NameIndex` plugs into the lenient parsers, not the strict constructor:
+`NameIndex` plugs into the static text helpers, not the strict constructor:
 
 ```ts
-Namefully.tryParse(raw, indexing); // null on failure
-Namefully.parse(raw, indexing);    // throws on failure
+Namefully.tryParse(raw, indexing);       // Namefully | undefined (sync)
+await Namefully.parse(raw, indexing);    // Promise<Namefully> (rejects on failure)
 ```
 
-If you need this kind of control at construction time and don't want the null/exception choice, write a [custom parser](./custom-parser.md) instead — that's the more flexible long-term answer.
+If you need positional control at construction time and don't want either contract, write a [custom parser](./custom-parser.md) instead — that's the more flexible long-term answer.
 
 ## When to reach for `NameIndex`
 

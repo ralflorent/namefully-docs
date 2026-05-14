@@ -32,12 +32,12 @@ There are three broad categories:
    new Namefully('John Smith').format('z l'); // throws
    ```
 
-All three throw the same `NameError`. The message tells you which case you've hit; if you need to branch on it programmatically, parse the message or use the `Namefully.parse()` lenient path.
+All three throw the same `NameError`. The message tells you which case you've hit; if you need to branch on it programmatically, parse the message or use the lenient `Namefully.tryParse()` and check for `undefined`.
 
 :::info v2 hierarchy
 v2 splits `NameError` into a proper subclass hierarchy (`InputError`, `ValidationError`, `NotAllowedError`, `UnknownError`) so you can branch with `instanceof`. v1.3.1 keeps a single class. See [What's new in v2](../whats-new-in-v2.md).
 :::
 
-## Working with `Namefully.parse()`
+## Working with `Namefully.tryParse()`
 
-If you'd rather not write a try/catch at all, the lenient `Namefully.parse()` returns `null` instead of throwing on parse and validation failures. See [`Namefully.parse()`](../creating/parse.md).
+If you'd rather not write a try/catch at all, `Namefully.tryParse()` is the synchronous helper that returns `undefined` instead of throwing on parse and validation failures. Its async sibling `Namefully.parse()` _does_ throw — wrapped in a rejected promise. See [`parse()` and `tryParse()`](../creating/parse.md).

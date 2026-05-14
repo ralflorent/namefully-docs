@@ -62,7 +62,7 @@ Whenever the constructor doesn't fit your input, the order of escalation is:
 1. **JSON object** — explicit slots, no parsing magic.
 2. **`Name` instances** — explicit slots _and_ explicit types.
 3. **`NameBuilder`** — incremental construction with hooks.
-4. **`Namefully.parse()` / `tryParse()` + `NameIndex`** — lenient parsing with positional control.
+4. **`Namefully.parse()` / `tryParse()` + `NameIndex`** — text parsing with positional control. `parse()` is async and throws; `tryParse()` is sync and returns `undefined` on failure.
 5. **Custom `Parser<T>`** — anything else.
 
 If you've worked through all five and still can't represent your name with `namefully`, that's a real edge case — open an issue and we'll see if it should become a first-class feature.

@@ -71,6 +71,6 @@ Note `separator` and `orderedBy` are independent — the separator says how to c
 
 If your input has a nickname in quotes, mixed separators, or your slots don't appear in a predictable order, switch to:
 
-- [`Namefully.parse()`](./parse.md) — best-effort, returns null on failure.
+- [`Namefully.parse()` / `tryParse()`](./parse.md) — async-throwing and sync-undefined helpers for string input.
 - [`NameIndex`](./name-index.md) — declare exactly which positions are which.
 - [Custom parser](./custom-parser.md) — full control.
