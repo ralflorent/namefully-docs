@@ -1,0 +1,72 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NPM_VERSION = "10"
+
+# Old docs URLs redirected to their nearest equivalent in the new IA.
+# Versions 1.0.6 / 1.0.9 / 1.1.0 / 1.2.0 have been retired — they all forward
+# to the v1.3.1 docs. Old in-tree paths (overview/installation/etc.) forward
+# to the closest match in the new structure.
+
+[[redirects]]
+  from = "/docs/1.0.6/*"
+  to = "/docs/1.3.1/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/docs/1.0.9/*"
+  to = "/docs/1.3.1/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/docs/1.1.0/*"
+  to = "/docs/1.3.1/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/docs/1.2.0/*"
+  to = "/docs/1.3.1/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/docs/installation"
+  to = "/docs/quick-start"
+  status = 301
+
+[[redirects]]
+  from = "/docs/syntax"
+  to = "/docs/reading/format"
+  status = 301
+
+[[redirects]]
+  from = "/docs/use-cases"
+  to = "/docs/configuration"
+  status = 301
+
+[[redirects]]
+  from = "/docs/examples"
+  to = "/docs/quick-start"
+  status = 301
+
+[[redirects]]
+  from = "/docs/resources"
+  to = "/docs/ecosystem/resources"
+  status = 301
+
+[[redirects]]
+  from = "/docs/angular"
+  to = "/docs/ecosystem/wrappers"
+  status = 301
+
+[[redirects]]
+  from = "/docs/react"
+  to = "/docs/ecosystem/wrappers"
+  status = 301
+
+[[redirects]]
+  from = "/docs/api-quick-reference"
+  to = "/docs/api/"
+  status = 301

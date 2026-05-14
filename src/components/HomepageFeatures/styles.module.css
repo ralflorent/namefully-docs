@@ -1,0 +1,12 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+  width: 100%;
+}
+
+.featureIcon {
+  height: 96px;
+  width: 96px;
+  margin-bottom: 1rem;
+}
