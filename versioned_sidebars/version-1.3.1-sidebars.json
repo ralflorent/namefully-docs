@@ -1,0 +1,80 @@
+{
+  "docs": [
+    {
+      "type": "category",
+      "label": "Introduction",
+      "collapsed": false,
+      "items": ["overview", "quick-start", "whats-new-in-v2"]
+    },
+    {
+      "type": "category",
+      "label": "Core concepts",
+      "collapsed": false,
+      "items": [
+        "concepts/name-standards",
+        "concepts/terminology",
+        "concepts/immutability-config"
+      ]
+    },
+    {
+      "type": "doc",
+      "id": "configuration",
+      "label": "Configuration"
+    },
+    {
+      "type": "category",
+      "label": "Creating names",
+      "collapsed": false,
+      "items": [
+        "creating/from-string",
+        "creating/from-array",
+        "creating/from-json",
+        "creating/from-name-instances",
+        "creating/parse",
+        "creating/name-builder",
+        "creating/custom-parser",
+        "creating/name-index"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Reading & formatting",
+      "collapsed": false,
+      "items": [
+        "reading/accessors",
+        "reading/format",
+        "reading/derived-forms",
+        "reading/iteration-equality"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Edge cases",
+      "items": [
+        "edge-cases/compound-names",
+        "edge-cases/writing-systems",
+        "edge-cases/error-handling",
+        "edge-cases/unsupported"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Ecosystem",
+      "items": [
+        "ecosystem/wrappers",
+        "ecosystem/ports",
+        "ecosystem/resources"
+      ]
+    },
+    {
+      "type": "doc",
+      "id": "faq",
+      "label": "FAQ"
+    },
+    {
+      "type": "doc",
+      "id": "contributing",
+      "label": "Contributing"
+    }
+  ]
+}

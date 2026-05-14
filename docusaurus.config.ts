@@ -46,6 +46,11 @@ const config: Config = {
               path: '/',
               badge: true,
             },
+            '1.3.1': {
+              label: '1.3.1',
+              path: '1.3.1',
+              banner: 'unmaintained',
+            },
           },
         },
         blog: false,
